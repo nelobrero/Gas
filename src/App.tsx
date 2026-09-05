@@ -4,6 +4,7 @@ import { sepolia } from 'viem/chains';
 import { encodeFunctionData } from 'viem';
 import { useEffect, useMemo, useState } from 'react';
 import type { LocalAccount } from 'viem';
+import './App.css';
 
 const contractAddress = "0x7FFF79EebC1a8ee57E1B9EC905B9c53B81523dbe";
 const contractAbi = [
@@ -72,7 +73,7 @@ function App() {
   if (!ready) return <p>Loading...</p>;
 
   return (
-    <div style={{ padding: "40px", textAlign: "center" }}>
+    <div>
       {authenticated ? (
         <>
           <p>Logged in! {signer ? `Wallet: ${signer.address}` : "Setting up wallet..."}</p>
@@ -83,7 +84,12 @@ function App() {
           <button onClick={logout}>Logout</button>
         </>
       ) : (
-        <button onClick={() => login()}>Connect / Sign In</button>
+        <div className="welcome">
+          <div className="icon-badge"></div>
+              <h1>Interact With Live Smart Contract </h1>
+              <p>Every transaction is sponsored behind the scenes.</p>
+            <button onClick={() => login()}>Sign In</button>
+        </div>
       )}
     </div>
   );
