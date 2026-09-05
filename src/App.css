@@ -61,7 +61,7 @@
   height: auto;
   rotate: 180deg;
 
-  animation: slideDown 0.5s ease-out forwards;
+  animation: slideDown 1.5s ease-out forwards;
 }
 
 @keyframes slideDown {
@@ -84,7 +84,7 @@
   height: auto;
   margin-left: 20px;
 
-  animation: slideUp 0.5s ease-out forwards;
+  animation: slideUp 1.5s ease-out forwards;
 }
 
 @keyframes slideUp {
@@ -126,19 +126,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--accent-bg);
-  margin-bottom: 24px;
+  width: 150px;
+  height: 150px;
 }
 
 .icon-badge img {
-  width: 32px;
-  height: 32px;
+  width: 120px;
+  height: 120px;
 }
 
 button {
+  margin-top: 24px;
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;

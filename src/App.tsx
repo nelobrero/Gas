@@ -92,7 +92,9 @@ function App() {
             </div>
             <h1>Interact With Live Smart Contract</h1>
             <p>Every transaction is sponsored behind the scenes.</p>
-            <button onClick={() => login()}>Sign In</button>
+            <button style={{ fontSize: '16px', fontWeight: 'bold', padding: '5px 50px', borderRadius: '100px', color: 'var(--text-h)', background: 'var(--accent)', transition: 'border-color 0.3s' }} onClick={() => login()}>
+              Sign In
+            </button>
           </div>
         )}
       </div>
