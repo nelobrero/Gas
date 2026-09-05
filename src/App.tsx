@@ -3,8 +3,10 @@ import { createSmartWalletClient, alchemyWalletTransport } from '@alchemy/wallet
 import { sepolia } from 'viem/chains';
 import { encodeFunctionData } from 'viem';
 import { useEffect, useMemo, useState } from 'react';
-import type { LocalAccount } from 'viem';
 import './App.css';
+import logoImg from './assets/0.png';
+import phoneImg from './assets/1.png';
+import phoneImg2 from './assets/2.png';
 
 const contractAddress = "0x7FFF79EebC1a8ee57E1B9EC905B9c53B81523dbe";
 const contractAbi = [
@@ -24,7 +26,6 @@ const contractAbi = [
   }
 ];
 
-// Turns Privy's embedded wallet into a signer Alchemy's Wallet APIs can use
 function usePrivySigner() {
   const { wallets: [wallet] } = useWallets();
   const [signer, setSigner] = useState<any>();
@@ -73,24 +74,33 @@ function App() {
   if (!ready) return <p>Loading...</p>;
 
   return (
-    <div>
-      {authenticated ? (
-        <>
-          <p>Logged in! {signer ? `Wallet: ${signer.address}` : "Setting up wallet..."}</p>
-          <button onClick={handleSayHello} disabled={sending || !client}>
-            {sending ? "Sending..." : "Say Hello On-Chain (Free!)"}
-          </button>
-          <br /><br />
-          <button onClick={logout}>Logout</button>
-        </>
-      ) : (
-        <div className="welcome">
-          <div className="icon-badge"></div>
-              <h1>Interact With Live Smart Contract </h1>
-              <p>Every transaction is sponsored behind the scenes.</p>
+    <div className="page">
+      <div className="left-column">
+        {authenticated ? (
+          <>
+            <p>Logged in! {signer ? `Wallet: ${signer.address}` : "Setting up wallet..."}</p>
+            <button onClick={handleSayHello} disabled={sending || !client}>
+              {sending ? "Sending..." : "Say Hello On-Chain (Free!)"}
+            </button>
+            <br /><br />
+            <button onClick={logout}>Logout</button>
+          </>
+        ) : (
+          <div className="welcome">
+            <div className="icon-badge">
+              <img src={logoImg} alt="" />
+            </div>
+            <h1>Interact With Live Smart Contract</h1>
+            <p>Every transaction is sponsored behind the scenes.</p>
             <button onClick={() => login()}>Sign In</button>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
+
+      <div className="right-column">
+        <img src={phoneImg} alt="" className="phone-image1" />
+        <img src={phoneImg2} alt="" className="phone-image2" />
+      </div>
     </div>
   );
 }
